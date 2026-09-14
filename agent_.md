@@ -1,4 +1,4 @@
-# AGENT_.MD — PROYECTO PARTE 1: PERFUMERÍA DE AUTOR ("INTENSE FRAGANCIAS")
+# AGENT_.MD — PROYECTO PARTE 1: PERFUMERÍA DE AUTOR ("NOIRÉ PERFUMES")
 
 > **Instrucciones maestras para Agentes de IA y Desarrollador**  
 > **Curso:** Desarrollo Web · Semestre 2026-2  
@@ -21,7 +21,7 @@ Este archivo define las reglas de negocio, directrices técnicas, restricciones 
 
 ## 2. Definición del Dominio y Modelo de Negocio
 
-* **Nombre comercial del proyecto:** *Intense Fragancias*.
+* **Nombre comercial del proyecto:** *Noiré Perfumes*.
 * **Propósito:** Plataforma web integral para la exploración olfativa, exhibición de fragancias de diseñador y perfumería nicho, y panel administrativo para la gestión de catálogo.
 * **Roles de usuario:**
   1. **Cliente / Visitante:** Explora el catálogo, filtra por familias olfativas, ve pirámides olfativas y solicita muestras o perfumes.
