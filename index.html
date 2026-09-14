@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda especializada en alta perfumería de autor, fragancias de diseñador y perfumería nicho para hombres, mujeres y unisex.">
-    <title>Éssence Parfums | Alta Perfumería & Fragancias de Autor</title>
+    <meta name="description" content="Tienda especializada en alta perfumería para hombres, mujeres y unisex. Marcas de diseñador y perfumería de nicho.">
+    <title>Éssence Parfums | Catálogo de Fragancias</title>
     <!-- Hoja de estilos externa (sin estilos en línea según rúbrica) -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <!-- Barra superior de anuncios informativos estilo Disfragancias -->
-    <aside class="barra-anuncio" aria-label="Avisos importantes">
-        <p>🚚 Envíos gratis a toda Colombia por compras superiores a $250.000 | 100% Fragancias Originales Garantizadas</p>
+    <!-- Barra superior informativa -->
+    <aside class="barra-anuncio" aria-label="Aviso informativo">
+        <p>✨ Éssence Parfums — Colección exclusiva de perfumería fina de diseñador y nicho</p>
     </aside>
 
     <!-- Encabezado Principal -->
@@ -31,7 +31,7 @@
                     type="search" 
                     id="input-busqueda" 
                     name="q" 
-                    placeholder="Buscar por fragancia, casa o nota..." 
+                    placeholder="Buscar fragancia o marca..." 
                     autocomplete="off"
                 >
                 <button type="submit" aria-label="Realizar búsqueda">
@@ -43,7 +43,7 @@
             <div class="acciones-usuario">
                 <a href="login.html" class="enlace-icono" id="enlace-login" title="Acceder a mi cuenta">
                     <span aria-hidden="true" class="icono">👤</span>
-                    <span class="texto-accion">Mi Cuenta</span>
+                    <span class="texto-accion">Ingresar</span>
                 </a>
                 <button type="button" class="enlace-icono btn-carrito" id="btn-carrito" aria-label="Abrir bolsa de compras">
                     <span aria-hidden="true" class="icono">🛍️</span>
@@ -73,9 +73,8 @@
                 <li><a href="#catalogo" class="enlace-categoria" data-filtro="hombres">Hombres</a></li>
                 <li><a href="#catalogo" class="enlace-categoria" data-filtro="mujeres">Mujeres</a></li>
                 <li><a href="#catalogo" class="enlace-categoria" data-filtro="unisex">Unisex</a></li>
-                <li><a href="#marcas" class="enlace-categoria">Marcas Destacadas</a></li>
-                <li><a href="#asesoria" class="enlace-categoria">Asesoría & Muestras</a></li>
-                <li><a href="login.html" class="enlace-categoria enlace-movil-login">Ingreso Administrador</a></li>
+                <li><a href="#marcas" class="enlace-categoria">Marcas</a></li>
+                <li><a href="login.html" class="enlace-categoria enlace-movil-login">Mi Cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -83,14 +82,13 @@
     <!-- Contenido Principal -->
     <main>
         <!-- Sección 1: Hero / Banner de Bienvenida -->
-        <section class="seccion-hero" aria-label="Presentación de la tienda">
+        <section class="seccion-hero" aria-label="Presentación del catálogo">
             <div class="contenido-hero">
-                <span class="insignia-hero">Colección Exclusiva 2026</span>
-                <h1>El Arte de la Perfumería Nicho y Diseñador</h1>
-                <p>Descubre fragancias que definen tu identidad. Seleccionamos cuidadosamente las creaciones más prestigiosas de casas francesas, italianas y de autor internacional.</p>
+                <span class="insignia-hero">Catálogo 2026</span>
+                <h1>Fragancias de Diseñador & Perfumería de Nicho</h1>
+                <p>Explora una selección única de aromas para hombres, mujeres y fragancias unisex de las casas más prestigiosas.</p>
                 <div class="botones-hero">
-                    <a href="#catalogo" class="btn btn-primario">Explorar Catálogo</a>
-                    <a href="#asesoria" class="btn btn-secundario">Solicitar Asesoría</a>
+                    <a href="#catalogo" class="btn btn-primario">Ver Catálogo Completo</a>
                 </div>
             </div>
         </section>
@@ -99,29 +97,29 @@
         <section class="seccion-marcas" id="marcas" aria-labelledby="titulo-marcas">
             <div class="contenedor">
                 <div class="encabezado-seccion">
-                    <h2 id="titulo-marcas">Nuestras Casas Perfumeras</h2>
-                    <p>Desde los íconos de la alta costura hasta los laboratorios de perfumería artesanal más exclusivos.</p>
+                    <h2 id="titulo-marcas">Marcas en Nuestro Catálogo</h2>
+                    <p>Colecciones de diseñadores icónicos y perfumería artística internacional.</p>
                 </div>
 
                 <div class="bloques-marcas">
                     <!-- Marcas Famosas / Diseñador -->
                     <article class="tarjeta-marca-grupo">
-                        <h3>Diseñador & Prestigio</h3>
-                        <p class="descripcion-marca-grupo">Íconos de elegancia y sofisticación reconocidos mundialmente.</p>
+                        <h3>Marcas Famosas (Diseñador)</h3>
+                        <p class="descripcion-marca-grupo">Creaciones reconocidas mundialmente por su estilo y sofisticación.</p>
                         <ul class="lista-etiquetas-marcas">
-                            <li>Dior</li>
+                            <li>Christian Dior</li>
                             <li>Chanel</li>
                             <li>Tom Ford</li>
-                            <li>Giorgio Armani</li>
                             <li>Yves Saint Laurent</li>
+                            <li>Giorgio Armani</li>
                             <li>Versace</li>
                         </ul>
                     </article>
 
                     <!-- Marcas de Nicho -->
                     <article class="tarjeta-marca-grupo">
-                        <h3>Perfumería de Autor & Nicho</h3>
-                        <p class="descripcion-marca-grupo">Concentraciones puras, materias primas escasas y narrativa olfativa única.</p>
+                        <h3>Marcas de Nicho (Autor)</h3>
+                        <p class="descripcion-marca-grupo">Casas dedicadas a formulaciones complejas e ingredientes selectos.</p>
                         <ul class="lista-etiquetas-marcas">
                             <li>Xerjoff</li>
                             <li>Creed</li>
@@ -140,11 +138,11 @@
             <div class="contenedor">
                 <div class="encabezado-seccion">
                     <h2 id="titulo-catalogo">Catálogo de Fragancias</h2>
-                    <p>Filtra por género o explora todas nuestras piezas olfativas disponibles.</p>
+                    <p>Selecciona una categoría o explora todas las opciones disponibles.</p>
                 </div>
 
                 <!-- Botonera de Filtros Interactivos (Grupo A - JS) -->
-                <div class="barra-filtros" role="toolbar" aria-label="Filtrado de productos por categoría">
+                <div class="barra-filtros" role="toolbar" aria-label="Filtrado de perfumes por categoría">
                     <button type="button" class="btn-filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
                     <button type="button" class="btn-filtro" data-filtro="hombres" aria-pressed="false">Hombres</button>
                     <button type="button" class="btn-filtro" data-filtro="mujeres" aria-pressed="false">Mujeres</button>
@@ -161,8 +159,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo">Diseñador</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco de fragancia masculina Sauvage Elixir de Dior sobre fondo oscuro"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -185,7 +183,7 @@
                             <span class="insignia-tipo insignia-nicho">Nicho</span>
                             <img 
                                 src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco de perfume Creed Aventus con detalles en plata y relieve"
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -207,8 +205,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo">Diseñador</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" 
-                                alt="Perfume Chanel Coco Mademoiselle en botella de cristal elegante"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -230,8 +228,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo insignia-nicho">Nicho</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco rosado de autor Delina Exclusif de Parfums de Marly"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -253,8 +251,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo insignia-nicho">Nicho</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco dorado de Xerjoff 1861 Naxos"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -276,8 +274,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo insignia-nicho">Nicho</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco cúbico negro de perfume Nishane Ani"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -300,7 +298,7 @@
                             <span class="insignia-tipo">Diseñador</span>
                             <img 
                                 src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco ahumado Tom Ford Oud Wood Private Blend"
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -322,8 +320,8 @@
                         <div class="contenedor-imagen">
                             <span class="insignia-tipo">Diseñador</span>
                             <img 
-                                src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" 
-                                alt="Frasco con logo dorado de Yves Saint Laurent Libre Intense"
+                                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" 
+                                alt="Frasco de fragancia de la colección Éssence"
                                 loading="lazy"
                             >
                         </div>
@@ -343,121 +341,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Sección 4: Valores y Garantías (Estilo Disfragancias) -->
-        <section class="seccion-garantias" aria-labelledby="titulo-garantias">
-            <div class="contenedor">
-                <h2 id="titulo-garantias" class="sr-only">Nuestras Garantías</h2>
-                <div class="cuadricula-garantias">
-                    <article class="tarjeta-garantia">
-                        <span class="icono-garantia" aria-hidden="true">💎</span>
-                        <h3>100% Autenticidad</h3>
-                        <p>Lotes verificables con códigos batch directos de distribuidores autorizados.</p>
-                    </article>
-                    <article class="tarjeta-garantia">
-                        <span class="icono-garantia" aria-hidden="true">📦</span>
-                        <h3>Empaque Blindado</h3>
-                        <p>Despachos con protección térmica y sello de seguridad antimanipulación.</p>
-                    </article>
-                    <article class="tarjeta-garantia">
-                        <span class="icono-garantia" aria-hidden="true">🧪</span>
-                        <h3>Muestras de Cortesía</h3>
-                        <p>Recibe 2 viales de 2 ml de perfumería nicho en cada uno de tus pedidos.</p>
-                    </article>
-                    <article class="tarjeta-garantia">
-                        <span class="icono-garantia" aria-hidden="true">💬</span>
-                        <h3>Asesoría Olfativa</h3>
-                        <p>Orientación personalizada con sommeliers olfativos según tu piel y ocasión.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección 5: Formulario de Asesoría y Discovery Set (Cumple Grupo B de la rúbrica) -->
-        <section class="seccion-asesoria" id="asesoria" aria-labelledby="titulo-asesoria">
-            <div class="contenedor">
-                <div class="encabezado-seccion">
-                    <h2 id="titulo-asesoria">Solicita tu Asesoría Olfativa o Muestra</h2>
-                    <p>Déjanos tus datos para recibir una recomendación experta de fragancia o solicitar un set de prueba.</p>
-                </div>
-
-                <form class="formulario-asesoria" id="form-asesoria" novalidate>
-                    <div class="grupo-formulario">
-                        <label for="campo-nombre">Nombre completo <span class="requerido" aria-hidden="true">*</span></label>
-                        <input 
-                            type="text" 
-                            id="campo-nombre" 
-                            name="nombre" 
-                            placeholder="Ej. Juan Pérez" 
-                            required 
-                            minlength="3"
-                        >
-                        <span class="mensaje-error" id="error-nombre" aria-live="polite"></span>
-                    </div>
-
-                    <div class="grupo-formulario">
-                        <label for="campo-email">Correo electrónico <span class="requerido" aria-hidden="true">*</span></label>
-                        <input 
-                            type="email" 
-                            id="campo-email" 
-                            name="email" 
-                            placeholder="tucorreo@ejemplo.com" 
-                            required
-                        >
-                        <span class="mensaje-error" id="error-email" aria-live="polite"></span>
-                    </div>
-
-                    <div class="grupo-formulario">
-                        <label for="campo-telefono">Teléfono / WhatsApp <span class="requerido" aria-hidden="true">*</span></label>
-                        <input 
-                            type="tel" 
-                            id="campo-telefono" 
-                            name="telefono" 
-                            placeholder="Ej. 3001234567" 
-                            required 
-                            pattern="[0-9]{10}"
-                        >
-                        <span class="mensaje-error" id="error-telefono" aria-live="polite"></span>
-                    </div>
-
-                    <div class="grupo-formulario">
-                        <label for="campo-familia">Familia olfativa de preferencia <span class="requerido" aria-hidden="true">*</span></label>
-                        <select id="campo-familia" name="familia" required>
-                            <option value="">-- Selecciona una familia --</option>
-                            <option value="amaderada">Amaderada (Sándalo, Cedro, Oud)</option>
-                            <option value="oriental">Ámbar / Oriental (Vainilla, Especias, Resinas)</option>
-                            <option value="citrica">Cítrica / Fresca (Bergamota, Neroli, Limón)</option>
-                            <option value="floral">Floral / Romántica (Rosa, Jazmín, Azahar)</option>
-                            <option value="gourmand">Gourmand (Café, Caramelo, Haba Tonka)</option>
-                        </select>
-                        <span class="mensaje-error" id="error-familia" aria-live="polite"></span>
-                    </div>
-
-                    <div class="grupo-formulario">
-                        <label for="campo-mensaje">Cuéntanos sobre tus gustos u ocasión de uso</label>
-                        <textarea 
-                            id="campo-mensaje" 
-                            name="mensaje" 
-                            rows="4" 
-                            placeholder="Ej. Busco una fragancia elegante para eventos nocturnos o para clima templado..."
-                        ></textarea>
-                        <span class="mensaje-error" id="error-mensaje" aria-live="polite"></span>
-                    </div>
-
-                    <div class="grupo-checkbox">
-                        <input type="checkbox" id="campo-terminos" name="terminos" required>
-                        <label for="campo-terminos">Acepto la política de tratamiento de datos personales para recibir asesoría.</label>
-                        <span class="mensaje-error" id="error-terminos" aria-live="polite"></span>
-                    </div>
-
-                    <button type="submit" class="btn btn-primario btn-bloque" id="btn-enviar-asesoria">
-                        Enviar Solicitud
-                    </button>
-
-                    <div class="mensaje-exito" id="mensaje-exito" role="alert" aria-hidden="true"></div>
-                </form>
-            </div>
-        </section>
     </main>
 
     <!-- Pie de Página Semántico -->
@@ -465,36 +348,37 @@
         <div class="contenedor cuadricula-pie">
             <div class="columna-pie">
                 <p class="logo-pie">ÉSSENCE PARFUMS</p>
-                <p>Especialistas en perfumería fina, fragancias de nicho y casas icónicas. Experiencia olfativa curada para conocedores.</p>
+                <p>Colección curada de fragancias para hombres, mujeres y creaciones unisex de casas de renombre mundial y perfumería de nicho.</p>
             </div>
 
             <div class="columna-pie">
-                <h4>Navegación</h4>
+                <h4>Categorías</h4>
                 <ul class="enlaces-pie">
                     <li><a href="#catalogo">Todos los Perfumes</a></li>
+                    <li><a href="#catalogo">Perfumes para Hombres</a></li>
+                    <li><a href="#catalogo">Perfumes para Mujeres</a></li>
+                    <li><a href="#catalogo">Fragancias Unisex</a></li>
                     <li><a href="#marcas">Casas y Marcas</a></li>
-                    <li><a href="#asesoria">Asesoría Personalizada</a></li>
-                    <li><a href="login.html">Acceso a Mi Cuenta</a></li>
                 </ul>
             </div>
 
             <div class="columna-pie">
-                <h4>Atención al Cliente</h4>
-                <p>Bogotá D.C., Colombia</p>
-                <p>Horario: Lunes a Sábado, 9:00 AM – 7:00 PM</p>
-                <p>Línea WhatsApp: +57 (300) 123-4567</p>
-                <p>Correo: contacto@essenceparfums.co</p>
+                <h4>Cuenta & Acceso</h4>
+                <ul class="enlaces-pie">
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li><a href="login.html">Panel de Administración</a></li>
+                </ul>
             </div>
 
             <div class="columna-pie">
-                <h4>Aviso Legal</h4>
-                <p>Sitio académico demostrativo desarrollado para el curso de Desarrollo Web 2026-2.</p>
-                <p>Sin pasarela de transacciones comerciales activa.</p>
+                <h4>Aviso Académico</h4>
+                <p>Sitio web demostrativo desarrollado para el curso de Desarrollo Web 2026-2.</p>
+                <p>Página dummy sin pasarela de pagos ni cobros reales.</p>
             </div>
         </div>
 
         <div class="barra-derechos">
-            <p>&copy; 2026 Éssence Parfums Atelier. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Éssence Parfums Atelier. Proyecto individual académico.</p>
         </div>
     </footer>
 
