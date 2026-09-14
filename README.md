@@ -22,7 +22,8 @@ El código está organizado de manera modular por carpetas técnicas para facili
 ```text
 proyecto-semestral/
 ├── index.html              # Tienda pública: cabecera, hero, marcas, catálogo con filtros y pie
-├── login.html              # Pantalla de acceso a la cuenta y panel demostrativo
+├── pages/
+│   └── login.html          # Pantalla de acceso a la cuenta y panel demostrativo
 ├── css/
 │   └── estilos.css         # Sistema de diseño: variables CSS, modo oscuro/claro, Flexbox y Grid
 ├── js/

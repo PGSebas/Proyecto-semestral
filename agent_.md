@@ -73,9 +73,10 @@ Siguiendo la visión modular del proyecto:
 
 ```text
 proyecto_parte_1/
-├── index.html              # Tienda pública: catálogo de perfumes, filtros, hero y formulario de muestras
-├── login.html              # Pantalla de acceso restringido para el administrador
-├── admin.html              # Panel de administración para crear y gestionar perfumes
+├── index.html              # Tienda pública: catálogo de perfumes, filtros, hero
+├── pages/
+│   ├── login.html          # Pantalla de acceso a cuenta / administrador
+│   └── admin.html          # Panel de administración (proyectado para gestión de catálogo)
 ├── css/
 │   └── estilos.css         # Sistema de diseño unificado: variables, Flexbox, Grid, dark mode y responsive
 ├── js/

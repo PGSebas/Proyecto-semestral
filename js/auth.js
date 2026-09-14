@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     mensajeEstado.textContent = '✓ Acceso concedido como Administrador. Redirigiendo a la tienda...';
 
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '../index.html';
                     }, 1800);
                 } else {
                     mensajeEstado.style.backgroundColor = 'rgba(106, 27, 154, 0.25)';
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     mensajeEstado.textContent = '✓ Sesión iniciada correctamente en modo cliente. Redirigiendo...';
 
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '../index.html';
                     }, 1800);
                 }
             }
