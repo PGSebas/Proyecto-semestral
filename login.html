@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acceso a la cuenta de usuario y panel administrativo de Éssence Parfums Atelier.">
+    <title>Iniciar Sesión | Éssence Parfums</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-login">
+
+    <!-- Encabezado simple con retorno a la tienda -->
+    <header class="cabecera-login">
+        <div class="contenedor-cabecera">
+            <a href="index.html" class="enlace-logo" aria-label="Volver a la tienda">
+                <span class="logo-texto">ÉSSENCE</span>
+                <span class="logo-subtexto">ATELIER DE PARFUM</span>
+            </a>
+            <a href="index.html" class="enlace-volver">&larr; Volver a la Tienda</a>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal del Formulario de Ingreso -->
+    <main class="principal-login">
+        <section class="tarjeta-login" aria-labelledby="titulo-login">
+            <header class="encabezado-tarjeta-login">
+                <span class="icono-auth" aria-hidden="true">🔐</span>
+                <h1 id="titulo-login">Iniciar Sesión</h1>
+                <p>Ingresa a tu cuenta de cliente o al panel de administración del catálogo.</p>
+            </header>
+
+            <form class="formulario-login" id="form-login" novalidate>
+                <!-- Credenciales demo de ayuda para el docente o evaluador -->
+                <aside class="aviso-demo" aria-label="Información de acceso de demostración">
+                    <p><strong>Modo Demostrativo:</strong></p>
+                    <p>Admin: <code>admin@essence.co</code> | Clave: <code>admin123</code></p>
+                </aside>
+
+                <div class="grupo-formulario">
+                    <label for="campo-usuario">Correo electrónico o Usuario <span class="requerido" aria-hidden="true">*</span></label>
+                    <input 
+                        type="email" 
+                        id="campo-usuario" 
+                        name="usuario" 
+                        placeholder="ejemplo@correo.com" 
+                        required 
+                        autocomplete="email"
+                    >
+                    <span class="mensaje-error" id="error-usuario" aria-live="polite"></span>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="campo-password">Contraseña <span class="requerido" aria-hidden="true">*</span></label>
+                    <input 
+                        type="password" 
+                        id="campo-password" 
+                        name="password" 
+                        placeholder="Ingresa tu contraseña" 
+                        required 
+                        minlength="6"
+                        autocomplete="current-password"
+                    >
+                    <span class="mensaje-error" id="error-password" aria-live="polite"></span>
+                </div>
+
+                <div class="opciones-login">
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="recordar-sesion" name="recordar">
+                        <label for="recordar-sesion">Recordar mis datos</label>
+                    </div>
+                    <a href="#" class="enlace-olvido" id="enlace-olvido">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primario btn-bloque" id="btn-ingresar">
+                    Ingresar a la Plataforma
+                </button>
+
+                <div class="mensaje-exito" id="mensaje-login-estado" role="alert" aria-hidden="true"></div>
+            </form>
+
+            <footer class="pie-tarjeta-login">
+                <p>¿Aún no tienes cuenta? <a href="index.html#asesoria">Solicita un perfil y asesoría personalizada</a></p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- Pie de página simplificado -->
+    <footer class="pie-login">
+        <p>&copy; 2026 Éssence Parfums. Acceso seguro demostrativo para desarrollo académico.</p>
+    </footer>
+
+    <!-- Script de autenticación con carga diferida -->
+    <script src="js/auth.js" defer></script>
+</body>
+</html>
