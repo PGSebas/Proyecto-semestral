@@ -345,85 +345,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   7. BARRA DE NAVEGACIÓN Y MENÚ (FLEXBOX)
-   -------------------------------------------------------------------------- */
-.navegacion-principal {
-    background-color: var(--color-bg-secciones);
-    border-top: 1px solid var(--color-borde);
-    position: relative;
-}
-
-.lista-categorias {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.6rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.enlace-categoria {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--color-texto-secundario);
-    padding: 0.4rem 0.2rem;
-    position: relative;
-}
-
-.enlace-categoria::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-rojo-profundo);
-    transition: var(--transicion-suave);
-    transform: translateX(-50%);
-}
-
-.enlace-categoria:hover,
-.enlace-categoria.activo {
-    color: var(--color-texto-principal);
-}
-
-.enlace-categoria:hover::after,
-.enlace-categoria.activo::after {
-    width: 100%;
-}
-
-.enlace-movil-login {
-    display: none; /* Visible solo en móvil */
-}
-
-/* Botón Hamburguesa Accesible */
-.btn-hamburguesa {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 2rem;
-    height: 2rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.2rem;
-    margin: 0.6rem 1.5rem;
-}
-
-.linea-hamburguesa {
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-blanco-lavanda);
-    border-radius: 2px;
-    transition: var(--transicion-suave);
-}
-
-/* --------------------------------------------------------------------------
-   8. HERO / BANNER PRINCIPAL (FLEXBOX)
+   7. HERO / BANNER PRINCIPAL (FLEXBOX)
    -------------------------------------------------------------------------- */
 .seccion-hero {
     background: var(--gradiente-hero);
@@ -1135,28 +1057,15 @@ button, input, select, textarea {
 
 /* Móvil (hasta 768px) */
 @media (max-width: 768px) {
-    .btn-hamburguesa {
-        display: flex;
+    .contenedor-cabecera {
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
 
-    .lista-categorias {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 1.5rem;
-        gap: 1rem;
-        background-color: var(--color-bg-tarjetas);
-        border-bottom: 1px solid var(--color-borde);
-    }
-
-    /* Estado abierto del menú móvil activado por JS */
-    .lista-categorias.activo {
-        display: flex;
-    }
-
-    .enlace-movil-login {
-        display: block;
-        color: var(--color-blanco-lavanda);
+    .buscador-cabecera {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
     }
 
     .seccion-hero {
@@ -1223,22 +1132,6 @@ button, input, select, textarea {
 [data-theme="light"] .enlace-icono:hover {
     color: #6A1B9A;
     background-color: rgba(106, 27, 154, 0.08);
-}
-
-/* Navegación por categorías */
-[data-theme="light"] .navegacion-principal {
-    background-color: #F4E8F7;
-    border-top: 1px solid rgba(106, 27, 154, 0.15);
-}
-
-[data-theme="light"] .enlace-categoria {
-    color: #3F2C46;
-}
-
-[data-theme="light"] .enlace-categoria:hover,
-[data-theme="light"] .enlace-categoria.activo {
-    color: #1A1A1A;
-    font-weight: 700;
 }
 
 /* Botones en Modo Claro */

@@ -1,11 +1,10 @@
 /**
  * NOIRÉ PERFUMES — TIENDA.JS
  * Lógica de cliente para la tienda principal:
- * 1. Menú hamburguesa accesible en móvil (Grupo A - DOM).
- * 2. Filtrado dinámico del catálogo por categoría y tipo (Grupo A - DOM).
- * 3. Búsqueda en tiempo real por nombre, marca o notas.
- * 4. Carrito demostrativo con contador dinámico (Grupo C - Eventos).
- * 5. Alternador de Modo Claro / Oscuro con persistencia en localStorage (+4 pts Bonificación).
+ * 1. Alternador de Modo Claro / Oscuro con persistencia en localStorage (+4 pts Bonificación).
+ * 2. Filtrado dinámico del catálogo por categoría y tipo (Grupo A - Manipulación del DOM).
+ * 3. Búsqueda en tiempo real por nombre, marca o notas olfativas.
+ * 4. Carrito demostrativo con contador dinámico y micro-animaciones (Grupo C - Eventos).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnTema = document.getElementById('btn-tema');
     const temaGuardado = localStorage.getItem('noire-theme') || 'dark';
 
-    // Aplicar tema inicial
+    // Aplicar tema inicial según preferencia previa guardada
     if (temaGuardado === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
     } else {
@@ -36,32 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------------------------
-    // 2. MENÚ HAMBURGUESA ACCESIBLE (MÓVIL)
-    // --------------------------------------------------------------------------
-    const btnHamburguesa = document.getElementById('btn-hamburguesa');
-    const menuCategorias = document.getElementById('menu-categorias');
-
-    if (btnHamburguesa && menuCategorias) {
-        btnHamburguesa.addEventListener('click', () => {
-            const expandido = btnHamburguesa.getAttribute('aria-expanded') === 'true';
-            btnHamburguesa.setAttribute('aria-expanded', !expandido);
-            menuCategorias.classList.toggle('activo');
-        });
-
-        // Cerrar el menú al hacer clic en un enlace de navegación
-        menuCategorias.querySelectorAll('a').forEach(enlace => {
-            enlace.addEventListener('click', () => {
-                btnHamburguesa.setAttribute('aria-expanded', 'false');
-                menuCategorias.classList.remove('activo');
-            });
-        });
-    }
-
-    // --------------------------------------------------------------------------
-    // 3. FILTRADO INTERACTIVO DEL CATÁLOGO
+    // 2. FILTRADO INTERACTIVO DEL CATÁLOGO (GRUPO A - DOM)
     // --------------------------------------------------------------------------
     const botonesFiltro = document.querySelectorAll('.btn-filtro');
-    const enlacesCategorias = document.querySelectorAll('.enlace-categoria[data-filtro]');
     const tarjetasProductos = document.querySelectorAll('.tarjeta-producto');
 
     /**
@@ -69,16 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string} filtro - 'todos', 'hombres', 'mujeres', 'unisex', 'nicho', 'disenador'
      */
     function aplicarFiltro(filtro) {
-        // Actualizar estado visual de los botones de la barra de filtros
+        // Actualizar estado visual accesible de los botones de filtro
         botonesFiltro.forEach(btn => {
             const activo = btn.dataset.filtro === filtro;
             btn.classList.toggle('activo', activo);
             btn.setAttribute('aria-pressed', activo ? 'true' : 'false');
-        });
-
-        // Actualizar estado de los enlaces en la navegación superior
-        enlacesCategorias.forEach(enlace => {
-            enlace.classList.toggle('activo', enlace.dataset.filtro === filtro);
         });
 
         // Filtrar tarjetas en el DOM
@@ -96,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 coincide = tipo === filtro;
             }
 
-            // Mostrar u ocultar la tarjeta con suavidad
+            // Mostrar u ocultar la tarjeta de producto
             if (coincide) {
                 tarjeta.style.display = 'flex';
             } else {
@@ -112,18 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Eventos en enlaces de categorías del menú superior
-    enlacesCategorias.forEach(enlace => {
-        enlace.addEventListener('click', (e) => {
-            const filtro = enlace.dataset.filtro;
-            if (filtro) {
-                aplicarFiltro(filtro);
-            }
-        });
-    });
-
     // --------------------------------------------------------------------------
-    // 4. BÚSQUEDA RÁPIDA EN VIVO (DOM)
+    // 3. BÚSQUEDA RÁPIDA EN VIVO (DOM)
     // --------------------------------------------------------------------------
     const inputBusqueda = document.getElementById('input-busqueda');
     const formBusqueda = document.getElementById('form-busqueda');
@@ -155,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------------------------
-    // 5. BOLSA / CARRITO DEMOSTRATIVO (FEEDBACK VISUAL)
+    // 4. BOLSA / CARRITO DEMOSTRATIVO (GRUPO C - EVENTOS)
     // --------------------------------------------------------------------------
     const contadorCarrito = document.getElementById('contador-carrito');
     const botonesAnadir = document.querySelectorAll('.btn-anadir-bolsa');
@@ -176,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Cambiar temporalmente el texto del botón
+            // Feedback visual temporal en el botón
             const textoOriginal = btn.textContent;
             btn.textContent = '✓ Añadido';
             btn.style.backgroundColor = 'var(--color-rojo-profundo)';

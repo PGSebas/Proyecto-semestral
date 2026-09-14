@@ -43,8 +43,8 @@
                 </button>
             </form>
 
-            <!-- Acciones de usuario rápidas -->
-            <div class="acciones-usuario">
+            <!-- Acciones de usuario y navegación rápida -->
+            <nav class="acciones-usuario" aria-label="Navegación de usuario">
                 <button type="button" class="enlace-icono btn-tema" id="btn-tema" aria-label="Alternar modo claro y oscuro" title="Cambiar modo claro / oscuro">
                     <span aria-hidden="true" class="icono">🌓</span>
                     <span class="texto-accion">Tema</span>
@@ -58,33 +58,8 @@
                     <span class="texto-accion">Carrito</span>
                     <span class="contador-carrito" id="contador-carrito">0</span>
                 </button>
-            </div>
+            </nav>
         </div>
-
-        <!-- Barra de Navegación por Categorías -->
-        <nav class="navegacion-principal" aria-label="Menú principal de categorías">
-            <button 
-                type="button" 
-                class="btn-hamburguesa" 
-                id="btn-hamburguesa" 
-                aria-expanded="false" 
-                aria-controls="menu-categorias" 
-                aria-label="Abrir o cerrar menú de navegación"
-            >
-                <span class="linea-hamburguesa"></span>
-                <span class="linea-hamburguesa"></span>
-                <span class="linea-hamburguesa"></span>
-            </button>
-
-            <ul class="lista-categorias" id="menu-categorias">
-                <li><a href="#catalogo" class="enlace-categoria activo" data-filtro="todos">Todos los Perfumes</a></li>
-                <li><a href="#catalogo" class="enlace-categoria" data-filtro="hombres">Hombres</a></li>
-                <li><a href="#catalogo" class="enlace-categoria" data-filtro="mujeres">Mujeres</a></li>
-                <li><a href="#catalogo" class="enlace-categoria" data-filtro="unisex">Unisex</a></li>
-                <li><a href="#marcas" class="enlace-categoria">Marcas</a></li>
-                <li><a href="pages/login.html" class="enlace-categoria enlace-movil-login">Mi Cuenta</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Contenido Principal -->
