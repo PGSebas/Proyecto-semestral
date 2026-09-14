@@ -40,6 +40,12 @@
     --resplandor-rojo: 0 0 18px rgba(139, 14, 26, 0.35);
     --resplandor-lavanda: 0 0 16px rgba(229, 198, 240, 0.2);
 
+    /* Gradiente y Badge del Hero */
+    --gradiente-hero: radial-gradient(circle at top center, #260e2d 0%, #0A0A0A 75%);
+    --bg-insignia-hero: rgba(106, 27, 154, 0.3);
+    --borde-insignia-hero: var(--color-morado-intenso);
+    --texto-insignia-hero: var(--color-blanco-lavanda);
+
     /* Radios y Transiciones */
     --radio-sm: 6px;
     --radio-md: 10px;
@@ -49,22 +55,28 @@
 
 /* --------------------------------------------------------------------------
    3. VARIABLES CSS — MODO CLARO ([data-theme="light"])
-   Mantiene la identidad usando fondos blancos y lavandas refinados.
+   Mantiene la identidad usando fondos blancos y lavandas refinados con alta legibilidad.
    -------------------------------------------------------------------------- */
 [data-theme="light"] {
     --color-bg-principal: #F9F6FB;         /* Blanco lavanda */
     --color-bg-secciones: #F2E5F7;         /* Sección lavanda suave */
     --color-bg-tarjetas: #FFFFFF;          /* Blanco puro en tarjetas */
-    --color-bg-superficie: #EAD7F0;        /* Lavanda claro */
-    --color-morado-intenso: #B48ACB;       /* Morado suave para destacados */
+    --color-bg-superficie: #FFFFFF;        /* Blanco para contenedor de imagen (elimina contraste del frasco) */
+    --color-morado-intenso: #6A1B9A;       /* Morado oscuro de alto contraste */
     --color-rojo-profundo: #A1132B;        /* Rojo elegante en botones */
     --color-rojo-hover: #800A1F;           /* Hover rojo elegante */
-    --color-blanco-lavanda: #6A1B9A;       /* Destacados en lavanda/morado oscuro */
-    --color-texto-principal: #222222;      /* Negro suave */
-    --color-texto-secundario: #5A4763;     /* Morado grisáceo de lectura */
-    --color-borde: rgba(180, 138, 203, 0.35); /* Borde sutil lavanda */
+    --color-blanco-lavanda: #6A1B9A;       /* Destacados en morado noble */
+    --color-texto-principal: #1A1A1A;      /* Negro carbón de máxima legibilidad */
+    --color-texto-secundario: #45344D;     /* Púrpura oscuro para textos secundarios (legible WCAG AA) */
+    --color-borde: rgba(106, 27, 154, 0.18); /* Borde sutil */
     --color-borde-foco: #A1132B;          /* Borde activo */
-    --color-barra-top: #EAD7F0;            /* Fondo barra anuncios */
+    --color-barra-top: #EFE4F4;            /* Fondo barra anuncios */
+    
+    /* Gradiente suave y legible en hero para modo claro */
+    --gradiente-hero: radial-gradient(circle at top center, #EDE0F2 0%, #F9F6FB 75%);
+    --bg-insignia-hero: #EFE3F5;
+    --borde-insignia-hero: #8E3FA8;
+    --texto-insignia-hero: #4A0E63;
     
     --sombra-tarjeta: 0 8px 24px rgba(106, 27, 154, 0.08);
     --sombra-hover: 0 14px 30px rgba(106, 27, 154, 0.16);
@@ -414,7 +426,7 @@ button, input, select, textarea {
    8. HERO / BANNER PRINCIPAL (FLEXBOX)
    -------------------------------------------------------------------------- */
 .seccion-hero {
-    background: radial-gradient(circle at top center, #260e2d 0%, var(--color-bg-principal) 75%);
+    background: var(--gradiente-hero);
     padding: 5rem 1.5rem;
     text-align: center;
     border-bottom: 1px solid var(--color-borde);
@@ -429,7 +441,7 @@ button, input, select, textarea {
     left: 10%;
     width: 80%;
     height: 100%;
-    background: radial-gradient(ellipse at 50% 20%, rgba(106, 27, 154, 0.15), transparent 70%);
+    background: radial-gradient(ellipse at 50% 20%, rgba(106, 27, 154, 0.1), transparent 70%);
     pointer-events: none;
 }
 
@@ -442,14 +454,14 @@ button, input, select, textarea {
 
 .insignia-hero {
     display: inline-block;
-    background-color: rgba(106, 27, 154, 0.3);
-    border: 1px solid var(--color-morado-intenso);
-    color: var(--color-blanco-lavanda);
-    font-size: 0.78rem;
-    font-weight: 600;
+    background-color: var(--bg-insignia-hero);
+    border: 1px solid var(--borde-insignia-hero);
+    color: var(--texto-insignia-hero);
+    font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 0.35rem 1rem;
+    padding: 0.4rem 1.2rem;
     border-radius: 30px;
     margin-bottom: 1.5rem;
 }
@@ -710,21 +722,39 @@ button, input, select, textarea {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background-color: rgba(10, 10, 10, 0.75);
+    z-index: 10; /* Siempre visible por encima de la imagen en hover */
+    background-color: rgba(15, 6, 20, 0.88);
     border: 1px solid var(--color-borde);
-    color: var(--color-blanco-lavanda);
-    font-size: 0.7rem;
+    color: #FFFFFF;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 0.25rem 0.7rem;
+    padding: 0.3rem 0.75rem;
     border-radius: 4px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    transition: var(--transicion-suave);
 }
 
 .insignia-nicho {
-    border-color: var(--color-morado-intenso);
+    border-color: #9C27B0;
     color: #F5D7FF;
+}
+
+/* En Modo Claro: aseguramos alto contraste y legibilidad */
+[data-theme="light"] .insignia-tipo {
+    background-color: #FFFFFF;
+    border-color: #8E3FA8;
+    color: #1A1A1A;
+    box-shadow: 0 2px 8px rgba(106, 27, 154, 0.15);
+}
+
+[data-theme="light"] .insignia-nicho {
+    background-color: #F8EDFA;
+    border-color: #6A1B9A;
+    color: #5B1385;
 }
 
 /* Cuerpo de la tarjeta (FLEXBOX) */
@@ -1155,3 +1185,250 @@ button, input, select, textarea {
         padding: 1.8rem;
     }
 }
+
+/* ==========================================================================
+   15. REFINAMIENTOS DE CONTRASTE Y LEGIBILIDAD PARA MODO CLARO
+   Garantiza contraste óptimo y lectura nítida en todos los componentes.
+   ========================================================================== */
+
+/* Barra de anuncios */
+[data-theme="light"] .barra-anuncio {
+    background-color: #EFE4F4;
+    color: #4A0E63;
+    border-bottom: 1px solid rgba(106, 27, 154, 0.15);
+}
+
+/* Cabecera y búsqueda */
+[data-theme="light"] .buscador-cabecera {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(106, 27, 154, 0.28);
+}
+
+[data-theme="light"] .buscador-cabecera input[type="search"] {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .buscador-cabecera input[type="search"]::placeholder {
+    color: #6A5672;
+}
+
+[data-theme="light"] .buscador-cabecera button {
+    color: #6A1B9A;
+}
+
+[data-theme="light"] .enlace-icono {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .enlace-icono:hover {
+    color: #6A1B9A;
+    background-color: rgba(106, 27, 154, 0.08);
+}
+
+/* Navegación por categorías */
+[data-theme="light"] .navegacion-principal {
+    background-color: #F4E8F7;
+    border-top: 1px solid rgba(106, 27, 154, 0.15);
+}
+
+[data-theme="light"] .enlace-categoria {
+    color: #3F2C46;
+}
+
+[data-theme="light"] .enlace-categoria:hover,
+[data-theme="light"] .enlace-categoria.activo {
+    color: #1A1A1A;
+    font-weight: 700;
+}
+
+/* Botones en Modo Claro */
+[data-theme="light"] .btn-secundario {
+    background-color: transparent;
+    border-color: #8E3FA8;
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .btn-secundario:hover {
+    background-color: rgba(142, 63, 168, 0.1);
+    border-color: #6A1B9A;
+    color: #5B1385;
+}
+
+/* Marcas destacadas */
+[data-theme="light"] .tarjeta-marca-grupo h3 {
+    color: #4A0E63;
+}
+
+[data-theme="light"] .descripcion-marca-grupo {
+    color: #42324A;
+}
+
+[data-theme="light"] .lista-etiquetas-marcas li {
+    background-color: #F6EEFA;
+    border: 1px solid rgba(106, 27, 154, 0.22);
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .lista-etiquetas-marcas li:hover {
+    background-color: #6A1B9A;
+    border-color: #6A1B9A;
+    color: #FFFFFF;
+}
+
+/* Barra de filtros */
+[data-theme="light"] .btn-filtro {
+    background-color: #FFFFFF;
+    border-color: rgba(106, 27, 154, 0.25);
+    color: #3A2842;
+}
+
+[data-theme="light"] .btn-filtro:hover {
+    border-color: #6A1B9A;
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .btn-filtro.activo {
+    background-color: #A1132B;
+    border-color: #A1132B;
+    color: #FFFFFF;
+}
+
+/* Tarjetas de Producto */
+[data-theme="light"] .tarjeta-producto {
+    border-color: rgba(106, 27, 154, 0.15);
+    background-color: #FFFFFF;
+}
+
+[data-theme="light"] .tarjeta-producto:hover {
+    border-color: #8E3FA8;
+    box-shadow: 0 14px 32px rgba(106, 27, 154, 0.16);
+}
+
+[data-theme="light"] .contenedor-imagen {
+    background-color: #FFFFFF;
+}
+
+[data-theme="light"] .marca-producto {
+    color: #6A1B9A;
+    font-weight: 700;
+}
+
+[data-theme="light"] .nombre-producto {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .concentracion-producto {
+    color: #55415E;
+}
+
+[data-theme="light"] .familia-producto,
+[data-theme="light"] .notas-producto {
+    color: #3E2B47;
+}
+
+[data-theme="light"] .familia-producto strong,
+[data-theme="light"] .notas-producto strong {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .precio-producto {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .btn-anadir-bolsa {
+    border-color: #A1132B;
+    color: #A1132B;
+}
+
+[data-theme="light"] .btn-anadir-bolsa:hover {
+    background-color: #A1132B;
+    color: #FFFFFF;
+}
+
+/* Pie de página */
+[data-theme="light"] .pie-principal {
+    background-color: #F1E2F5;
+    border-top: 1px solid rgba(106, 27, 154, 0.15);
+}
+
+[data-theme="light"] .columna-pie h4 {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .logo-pie {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .columna-pie p,
+[data-theme="light"] .enlaces-pie a {
+    color: #42324A;
+}
+
+[data-theme="light"] .enlaces-pie a:hover {
+    color: #6A1B9A;
+}
+
+[data-theme="light"] .barra-derechos {
+    background-color: #EBD9F0;
+    color: #4A3A52;
+    border-top: 1px solid rgba(106, 27, 154, 0.12);
+}
+
+/* Tarjeta de login en modo claro */
+[data-theme="light"] .pagina-login {
+    background: radial-gradient(circle at center, #F4E8F7 0%, #EFE1F4 100%);
+}
+
+[data-theme="light"] .cabecera-login {
+    background-color: rgba(249, 246, 251, 0.8);
+}
+
+[data-theme="light"] .enlace-volver {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .tarjeta-login {
+    background-color: #FFFFFF;
+    border-color: rgba(106, 27, 154, 0.18);
+    box-shadow: 0 12px 36px rgba(106, 27, 154, 0.12);
+}
+
+[data-theme="light"] .encabezado-tarjeta-login h1 {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .encabezado-tarjeta-login p {
+    color: #42324A;
+}
+
+[data-theme="light"] .aviso-demo {
+    background-color: #F5ECF8;
+    border-color: #8E3FA8;
+    color: #4A0E63;
+}
+
+[data-theme="light"] .aviso-demo code {
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    border: 1px solid rgba(106, 27, 154, 0.2);
+}
+
+[data-theme="light"] .grupo-formulario label {
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .grupo-formulario input[type="email"],
+[data-theme="light"] .grupo-formulario input[type="password"] {
+    background-color: #FAF6FB;
+    border-color: rgba(106, 27, 154, 0.25);
+    color: #1A1A1A;
+}
+
+[data-theme="light"] .enlace-olvido {
+    color: #6A1B9A;
+}
+
+[data-theme="light"] .pie-tarjeta-login a {
+    color: #6A1B9A;
+}
+
