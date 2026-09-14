@@ -4,7 +4,39 @@
  * Cumple Grupo B (Validación propia sin alert) y Grupo C (Eventos) de la Rúbrica.
  */
 
+// --------------------------------------------------------------------------
+// 1. APLICACIÓN INMEDIATA DEL TEMA (Previene parpadeo visual / FOUC)
+// --------------------------------------------------------------------------
+(function inicializarTema() {
+    const temaGuardado = localStorage.getItem('noire-theme') || 'dark';
+    if (temaGuardado === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+    // --------------------------------------------------------------------------
+    // 2. ALTERNADOR DE TEMA EN LOGIN (MODO OSCURO / MODO CLARO)
+    // --------------------------------------------------------------------------
+    const btnTema = document.getElementById('btn-tema');
+    if (btnTema) {
+        btnTema.addEventListener('click', () => {
+            const esModoClaro = document.documentElement.getAttribute('data-theme') === 'light';
+            if (esModoClaro) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('noire-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('noire-theme', 'light');
+            }
+        });
+    }
+
+    // --------------------------------------------------------------------------
+    // 3. VALIDACIÓN Y GESTIÓN DEL FORMULARIO DE ACCESO
+    // --------------------------------------------------------------------------
     const formLogin = document.getElementById('form-login');
     const campoUsuario = document.getElementById('campo-usuario');
     const campoPassword = document.getElementById('campo-password');
@@ -99,26 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const pass = campoPassword.value;
 
             if (mensajeEstado) {
-                mensajeEstado.style.display = 'block';
-                mensajeEstado.style.padding = '0.8rem';
-                mensajeEstado.style.borderRadius = '6px';
-                mensajeEstado.style.marginTop = '1rem';
-                mensajeEstado.style.fontSize = '0.85rem';
-                mensajeEstado.style.textAlign = 'center';
+                mensajeEstado.className = 'mensaje-exito visible';
+                mensajeEstado.removeAttribute('aria-hidden');
 
                 if (correo === 'admin@noireperfumes.co' && pass === 'admin123') {
-                    mensajeEstado.style.backgroundColor = 'rgba(46, 125, 50, 0.2)';
-                    mensajeEstado.style.border = '1px solid #4CAF50';
-                    mensajeEstado.style.color = '#A5D6A7';
+                    mensajeEstado.classList.add('tipo-admin');
                     mensajeEstado.textContent = '✓ Acceso concedido como Administrador. Redirigiendo a la tienda...';
 
                     setTimeout(() => {
                         window.location.href = '../index.html';
                     }, 1800);
                 } else {
-                    mensajeEstado.style.backgroundColor = 'rgba(106, 27, 154, 0.25)';
-                    mensajeEstado.style.border = '1px solid var(--color-morado-intenso)';
-                    mensajeEstado.style.color = 'var(--color-blanco-lavanda)';
+                    mensajeEstado.classList.add('tipo-cliente');
                     mensajeEstado.textContent = '✓ Sesión iniciada correctamente en modo cliente. Redirigiendo...';
 
                     setTimeout(() => {

@@ -7,19 +7,23 @@
  * 4. Carrito demostrativo con contador dinámico y micro-animaciones (Grupo C - Eventos).
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // --------------------------------------------------------------------------
-    // 1. ALTERNADOR DE TEMA (MODO OSCURO / MODO CLARO)
-    // --------------------------------------------------------------------------
-    const btnTema = document.getElementById('btn-tema');
+// --------------------------------------------------------------------------
+// 1. APLICACIÓN INMEDIATA DEL TEMA (Previene parpadeo visual / FOUC)
+// --------------------------------------------------------------------------
+(function inicializarTema() {
     const temaGuardado = localStorage.getItem('noire-theme') || 'dark';
-
-    // Aplicar tema inicial según preferencia previa guardada
     if (temaGuardado === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
     } else {
         document.documentElement.removeAttribute('data-theme');
     }
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --------------------------------------------------------------------------
+    // 1. ALTERNADOR DE TEMA (MODO OSCURO / MODO CLARO)
+    // --------------------------------------------------------------------------
+    const btnTema = document.getElementById('btn-tema');
 
     if (btnTema) {
         btnTema.addEventListener('click', () => {

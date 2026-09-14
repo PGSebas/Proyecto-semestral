@@ -1325,3 +1325,61 @@ button, input, select, textarea {
     color: #6A1B9A;
 }
 
+[data-theme="light"] .enlace-volver:hover {
+    color: #6A1B9A;
+}
+
+[data-theme="light"] .grupo-checkbox label {
+    color: #42324A;
+}
+
+[data-theme="light"] .pie-tarjeta-login {
+    color: #55415E;
+    border-color: rgba(106, 27, 154, 0.15);
+}
+
+[data-theme="light"] .pie-login {
+    color: #55415E;
+}
+
+/* Mensajes de estado login */
+.mensaje-exito {
+    display: none;
+    padding: 0.85rem;
+    border-radius: var(--radio-sm);
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    text-align: center;
+    font-weight: 500;
+    transition: var(--transicion-suave);
+}
+
+.mensaje-exito.visible {
+    display: block;
+}
+
+.mensaje-exito.tipo-admin {
+    background-color: rgba(46, 125, 50, 0.2);
+    border: 1px solid #4CAF50;
+    color: #A5D6A7;
+}
+
+.mensaje-exito.tipo-cliente {
+    background-color: rgba(106, 27, 154, 0.25);
+    border: 1px solid var(--color-morado-intenso);
+    color: var(--color-blanco-lavanda);
+}
+
+[data-theme="light"] .mensaje-exito.tipo-admin {
+    background-color: #E8F5E9;
+    border-color: #4CAF50;
+    color: #1B5E20;
+}
+
+[data-theme="light"] .mensaje-exito.tipo-cliente {
+    background-color: #F5ECF8;
+    border-color: #8E3FA8;
+    color: #4A0E63;
+}
+
+
