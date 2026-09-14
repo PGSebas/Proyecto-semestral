@@ -40,6 +40,33 @@ Este archivo define las reglas de negocio, directrices técnicas, restricciones 
 
 ---
 
+## 2.1 Identidad Visual Oficial — NOIRÉ Perfumes
+
+* **Concepto de marca:** Lujo, misterio, sensualidad y exclusividad. La paleta combina negro profundo, morado y acentos en rojo para reflejar sofisticación e intensidad.
+* **Eslogan oficial:** *"Esencia que te define."*
+* **Headline Hero:** *"Más que fragancias, historias en tu piel."*
+
+### Paleta de Colores y Tokens de Diseño:
+* **🌑 Modo Oscuro (Principal / Sofisticado):**
+  * Fondo principal: `#0A0A0A` (Negro profundo)
+  * Secciones y tarjetas: `#1B0B1F` (Morado muy oscuro)
+  * Elementos destacados: `#6A1B9A` (Morado intenso)
+  * Botones y CTAs: `#8B0E1A` (Rojo profundo)
+  * Textos destacados / acentos: `#E5C6F0` (Blanco lavanda)
+  * Texto general: `#FFFFFF` / `#CBB4D4`
+* **☀️ Modo Claro (Secundario / Elegante y Limpio):**
+  * Fondo principal: `#F9F6FB` (Blanco lavanda)
+  * Secciones: `#EAD7F0` (Lavanda claro)
+  * Elementos destacados: `#B48ACB` (Morado suave)
+  * Botones: `#A1132B` (Rojo elegante)
+  * Textos: `#222222` (Negro suave) y `#5A4763`
+
+### Tipografía Oficial:
+* **Títulos, Marca y Prestigio:** `Playfair Display` (serif elegante, transmite exclusividad).
+* **Textos, Menús, Precios y Formularios:** `Montserrat` (sans-serif moderna y limpia).
+
+---
+
 ## 3. Arquitectura del Proyecto (Estructura de Archivos)
 
 Siguiendo la visión modular del proyecto:

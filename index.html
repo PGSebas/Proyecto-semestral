@@ -31,7 +31,7 @@
                     type="search" 
                     id="input-busqueda" 
                     name="q" 
-                    placeholder="Buscar fragancia o marca..." 
+                    placeholder="Buscar tu fragancia..." 
                     autocomplete="off"
                 >
                 <button type="submit" aria-label="Realizar búsqueda">
@@ -41,13 +41,17 @@
 
             <!-- Acciones de usuario rápidas -->
             <div class="acciones-usuario">
+                <button type="button" class="enlace-icono btn-tema" id="btn-tema" aria-label="Alternar modo claro y oscuro" title="Cambiar modo claro / oscuro">
+                    <span aria-hidden="true" class="icono">🌓</span>
+                    <span class="texto-accion">Tema</span>
+                </button>
                 <a href="login.html" class="enlace-icono" id="enlace-login" title="Acceder a mi cuenta">
                     <span aria-hidden="true" class="icono">👤</span>
-                    <span class="texto-accion">Ingresar</span>
+                    <span class="texto-accion">Mi Cuenta</span>
                 </a>
                 <button type="button" class="enlace-icono btn-carrito" id="btn-carrito" aria-label="Abrir bolsa de compras">
                     <span aria-hidden="true" class="icono">🛍️</span>
-                    <span class="texto-accion">Bolsa</span>
+                    <span class="texto-accion">Carrito</span>
                     <span class="contador-carrito" id="contador-carrito">0</span>
                 </button>
             </div>
@@ -82,13 +86,14 @@
     <!-- Contenido Principal -->
     <main>
         <!-- Sección 1: Hero / Banner de Bienvenida -->
-        <section class="seccion-hero" aria-label="Presentación del catálogo">
+        <section class="seccion-hero" aria-label="Presentación de Noiré Perfumes">
             <div class="contenido-hero">
-                <span class="insignia-hero">Catálogo 2026</span>
-                <h1>Fragancias de Diseñador & Perfumería de Nicho</h1>
-                <p>Explora una selección única de aromas para hombres, mujeres y fragancias unisex de las casas más prestigiosas en Noiré Perfumes.</p>
+                <span class="insignia-hero">Esencia que te define</span>
+                <h1>Más que fragancias, historias en tu piel.</h1>
+                <p>Descubre esencias creadas para dejar una impresión inolvidable. Selección exclusiva de perfumería de autor, casas icónicas de diseñador y formulaciones de nicho.</p>
                 <div class="botones-hero">
-                    <a href="#catalogo" class="btn btn-primario">Ver Catálogo Completo</a>
+                    <a href="#catalogo" class="btn btn-primario">Descubrir fragancias &rarr;</a>
+                    <a href="#marcas" class="btn btn-secundario">Ver colección</a>
                 </div>
             </div>
         </section>

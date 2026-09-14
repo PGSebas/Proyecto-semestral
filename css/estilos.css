@@ -1,0 +1,1118 @@
+/* ==========================================================================
+   NOIRÉ PERFUMES — SISTEMA DE DISEÑO & HOJA DE ESTILOS UNIFICADA
+   Identidad visual: Lujo, Misterio, Sensualidad y Sofisticación.
+   Rúbrica de evaluación: CSS Puro, Variables CSS, Flexbox, Grid y Responsive.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. IMPORTACIÓN DE TIPOGRAFÍAS (Google Fonts)
+   - Títulos y Logo: Playfair Display (Elegancia y Exclusividad)
+   - Textos, Menús, Precios y Formularios: Montserrat (Modernidad y Limpieza)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. VARIABLES CSS (:root) — MODO OSCURO (Versión principal y sofisticada)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paleta Modo Oscuro */
+    --color-bg-principal: #0A0A0A;         /* Negro profundo */
+    --color-bg-secciones: #120616;         /* Morado oscuro de fondo */
+    --color-bg-tarjetas: #1B0B1F;          /* Morado negro para tarjetas */
+    --color-bg-superficie: #26112C;        /* Superficie elevada */
+    --color-morado-intenso: #6A1B9A;       /* Morado destacado */
+    --color-rojo-profundo: #8B0E1A;        /* Botones principales y llamadas a la acción */
+    --color-rojo-hover: #A81524;           /* Hover botón primario */
+    --color-blanco-lavanda: #E5C6F0;       /* Textos destacados e iconos */
+    --color-texto-principal: #FFFFFF;      /* Texto base */
+    --color-texto-secundario: #CBB4D4;     /* Texto grisáceo/lavanda */
+    --color-borde: rgba(229, 198, 240, 0.22); /* Borde sutil */
+    --color-borde-foco: #8B0E1A;          /* Borde activo en inputs */
+    --color-barra-top: #150319;            /* Fondo barra anuncios */
+    
+    /* Tipografías */
+    --fuente-titulos: 'Playfair Display', Georgia, serif;
+    --fuente-cuerpo: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Sombras y Resplandores */
+    --sombra-tarjeta: 0 10px 30px rgba(0, 0, 0, 0.6);
+    --sombra-hover: 0 16px 36px rgba(106, 27, 154, 0.25);
+    --resplandor-rojo: 0 0 18px rgba(139, 14, 26, 0.35);
+    --resplandor-lavanda: 0 0 16px rgba(229, 198, 240, 0.2);
+
+    /* Radios y Transiciones */
+    --radio-sm: 6px;
+    --radio-md: 10px;
+    --radio-lg: 16px;
+    --transicion-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --------------------------------------------------------------------------
+   3. VARIABLES CSS — MODO CLARO ([data-theme="light"])
+   Mantiene la identidad usando fondos blancos y lavandas refinados.
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+    --color-bg-principal: #F9F6FB;         /* Blanco lavanda */
+    --color-bg-secciones: #F2E5F7;         /* Sección lavanda suave */
+    --color-bg-tarjetas: #FFFFFF;          /* Blanco puro en tarjetas */
+    --color-bg-superficie: #EAD7F0;        /* Lavanda claro */
+    --color-morado-intenso: #B48ACB;       /* Morado suave para destacados */
+    --color-rojo-profundo: #A1132B;        /* Rojo elegante en botones */
+    --color-rojo-hover: #800A1F;           /* Hover rojo elegante */
+    --color-blanco-lavanda: #6A1B9A;       /* Destacados en lavanda/morado oscuro */
+    --color-texto-principal: #222222;      /* Negro suave */
+    --color-texto-secundario: #5A4763;     /* Morado grisáceo de lectura */
+    --color-borde: rgba(180, 138, 203, 0.35); /* Borde sutil lavanda */
+    --color-borde-foco: #A1132B;          /* Borde activo */
+    --color-barra-top: #EAD7F0;            /* Fondo barra anuncios */
+    
+    --sombra-tarjeta: 0 8px 24px rgba(106, 27, 154, 0.08);
+    --sombra-hover: 0 14px 30px rgba(106, 27, 154, 0.16);
+    --resplandor-rojo: 0 0 14px rgba(161, 19, 43, 0.2);
+    --resplandor-lavanda: 0 0 14px rgba(180, 138, 203, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   4. RESET Y ESTILOS BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--color-bg-principal);
+    color: var(--color-texto-principal);
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transicion-suave);
+}
+
+ul {
+    list-style: none;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* Accesibilidad: clase para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Contenedor general centrado */
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. BARRA DE ANUNCIO SUPERIOR
+   -------------------------------------------------------------------------- */
+.barra-anuncio {
+    background-color: var(--color-barra-top);
+    color: var(--color-blanco-lavanda);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-align: center;
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* --------------------------------------------------------------------------
+   6. CABECERA PRINCIPAL (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.cabecera-principal {
+    background-color: var(--color-bg-principal);
+    border-bottom: 1px solid var(--color-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.contenedor-cabecera {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Logotipo Noiré Perfumes */
+.enlace-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.logo-texto {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--color-texto-principal);
+    line-height: 1.1;
+}
+
+.logo-subtexto {
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    color: var(--color-blanco-lavanda);
+    text-transform: uppercase;
+}
+
+/* Barra de Búsqueda Rápida */
+.buscador-cabecera {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-tarjetas);
+    border: 1px solid var(--color-borde);
+    border-radius: 50px;
+    padding: 0.35rem 0.6rem 0.35rem 1rem;
+    flex: 1;
+    max-width: 440px;
+    transition: var(--transicion-suave);
+}
+
+.buscador-cabecera:focus-within {
+    border-color: var(--color-morado-intenso);
+    box-shadow: var(--resplandor-lavanda);
+}
+
+.buscador-cabecera input[type="search"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--color-texto-principal);
+    font-size: 0.9rem;
+}
+
+.buscador-cabecera input[type="search"]::placeholder {
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+}
+
+.buscador-cabecera button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco-lavanda);
+}
+
+/* Acciones de Usuario (FLEXBOX) */
+.acciones-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.enlace-icono {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-texto-principal);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radio-sm);
+    transition: var(--transicion-suave);
+}
+
+.enlace-icono:hover {
+    color: var(--color-blanco-lavanda);
+    background-color: rgba(229, 198, 240, 0.08);
+}
+
+.icono {
+    font-size: 1.1rem;
+}
+
+.btn-carrito {
+    position: relative;
+}
+
+.contador-carrito {
+    background-color: var(--color-rojo-profundo);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 20px;
+    margin-left: 0.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. BARRA DE NAVEGACIÓN Y MENÚ (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.navegacion-principal {
+    background-color: var(--color-bg-secciones);
+    border-top: 1px solid var(--color-borde);
+    position: relative;
+}
+
+.lista-categorias {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.enlace-categoria {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-texto-secundario);
+    padding: 0.4rem 0.2rem;
+    position: relative;
+}
+
+.enlace-categoria::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-rojo-profundo);
+    transition: var(--transicion-suave);
+    transform: translateX(-50%);
+}
+
+.enlace-categoria:hover,
+.enlace-categoria.activo {
+    color: var(--color-texto-principal);
+}
+
+.enlace-categoria:hover::after,
+.enlace-categoria.activo::after {
+    width: 100%;
+}
+
+.enlace-movil-login {
+    display: none; /* Visible solo en móvil */
+}
+
+/* Botón Hamburguesa Accesible */
+.btn-hamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    margin: 0.6rem 1.5rem;
+}
+
+.linea-hamburguesa {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-blanco-lavanda);
+    border-radius: 2px;
+    transition: var(--transicion-suave);
+}
+
+/* --------------------------------------------------------------------------
+   8. HERO / BANNER PRINCIPAL (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.seccion-hero {
+    background: radial-gradient(circle at top center, #260e2d 0%, var(--color-bg-principal) 75%);
+    padding: 5rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-borde);
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse at 50% 20%, rgba(106, 27, 154, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.contenido-hero {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.insignia-hero {
+    display: inline-block;
+    background-color: rgba(106, 27, 154, 0.3);
+    border: 1px solid var(--color-morado-intenso);
+    color: var(--color-blanco-lavanda);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+}
+
+.seccion-hero h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-texto-principal);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.seccion-hero p {
+    font-size: 1.05rem;
+    color: var(--color-texto-secundario);
+    max-width: 650px;
+    margin: 0 auto 2.2rem auto;
+}
+
+.botones-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   9. BOTONES DEL SISTEMA DE DISEÑO
+   - Botón Primario: Rojo profundo (#8B0E1A)
+   - Botón Secundario: Transparente con borde lavanda
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    padding: 0.85rem 1.8rem;
+    border-radius: var(--radio-sm);
+    cursor: pointer;
+    transition: var(--transicion-suave);
+    border: 1px solid transparent;
+}
+
+.btn-primario {
+    background-color: var(--color-rojo-profundo);
+    color: #FFFFFF;
+    box-shadow: var(--resplandor-rojo);
+}
+
+.btn-primario:hover {
+    background-color: var(--color-rojo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 14, 26, 0.45);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border-color: var(--color-blanco-lavanda);
+    color: var(--color-texto-principal);
+}
+
+.btn-secundario:hover {
+    background-color: rgba(229, 198, 240, 0.12);
+    border-color: var(--color-morado-intenso);
+    transform: translateY(-2px);
+}
+
+.btn-bloque {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECCIÓN MARCAS DESTACADAS (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.seccion-marcas {
+    background-color: var(--color-bg-secciones);
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.encabezado-seccion {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+.encabezado-seccion h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin-bottom: 0.6rem;
+}
+
+.encabezado-seccion p {
+    color: var(--color-texto-secundario);
+    font-size: 0.95rem;
+}
+
+.bloques-marcas {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tarjeta-marca-grupo {
+    background-color: var(--color-bg-tarjetas);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-md);
+    padding: 2rem;
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    box-shadow: var(--sombra-tarjeta);
+    transition: var(--transicion-suave);
+}
+
+.tarjeta-marca-grupo:hover {
+    border-color: var(--color-morado-intenso);
+    box-shadow: var(--sombra-hover);
+    transform: translateY(-3px);
+}
+
+.tarjeta-marca-grupo h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    color: var(--color-blanco-lavanda);
+    margin-bottom: 0.5rem;
+}
+
+.descripcion-marca-grupo {
+    font-size: 0.88rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 1.5rem;
+}
+
+.lista-etiquetas-marcas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.lista-etiquetas-marcas li {
+    background-color: var(--color-bg-superficie);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto-principal);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    transition: var(--transicion-suave);
+}
+
+.lista-etiquetas-marcas li:hover {
+    border-color: var(--color-morado-intenso);
+    background-color: var(--color-morado-intenso);
+    color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   11. CATÁLOGO DE PRODUCTOS (GRID RESPONSIVE)
+   -------------------------------------------------------------------------- */
+.seccion-catalogo {
+    padding: 5rem 0;
+    background-color: var(--color-bg-principal);
+}
+
+/* Barra de Filtros (FLEXBOX) */
+.barra-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.btn-filtro {
+    background-color: var(--color-bg-tarjetas);
+    color: var(--color-texto-secundario);
+    border: 1px solid var(--color-borde);
+    padding: 0.55rem 1.3rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+}
+
+.btn-filtro:hover {
+    border-color: var(--color-morado-intenso);
+    color: var(--color-texto-principal);
+}
+
+.btn-filtro.activo {
+    background-color: var(--color-rojo-profundo);
+    border-color: var(--color-rojo-profundo);
+    color: #FFFFFF;
+    box-shadow: var(--resplandor-rojo);
+}
+
+/* Cuadrícula de Tarjetas (CSS GRID) */
+.cuadricula-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta individual de perfume */
+.tarjeta-producto {
+    background-color: var(--color-bg-tarjetas);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--sombra-tarjeta);
+    transition: var(--transicion-suave);
+    position: relative;
+}
+
+.tarjeta-producto:hover {
+    border-color: var(--color-morado-intenso);
+    box-shadow: var(--sombra-hover);
+    transform: translateY(-5px);
+}
+
+/* Imagen del perfume */
+.contenedor-imagen {
+    position: relative;
+    background-color: var(--color-bg-superficie);
+    padding: 2.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contenedor-imagen img {
+    max-height: 210px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-producto:hover .contenedor-imagen img {
+    transform: scale(1.06);
+}
+
+/* Badges de Categoría */
+.insignia-tipo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(10, 10, 10, 0.75);
+    border: 1px solid var(--color-borde);
+    color: var(--color-blanco-lavanda);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.insignia-nicho {
+    border-color: var(--color-morado-intenso);
+    color: #F5D7FF;
+}
+
+/* Cuerpo de la tarjeta (FLEXBOX) */
+.cuerpo-tarjeta {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.marca-producto {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-blanco-lavanda);
+    margin-bottom: 0.3rem;
+}
+
+.nombre-producto {
+    font-family: var(--fuente-titulos);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin-bottom: 0.4rem;
+}
+
+.concentracion-producto {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-texto-secundario);
+    margin-bottom: 0.8rem;
+}
+
+.familia-producto, .notas-producto {
+    font-size: 0.82rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+.familia-producto strong, .notas-producto strong {
+    color: var(--color-texto-principal);
+}
+
+/* Pie de la tarjeta */
+.pie-tarjeta {
+    margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-borde);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.precio-producto {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+}
+
+.btn-anadir-bolsa {
+    background-color: transparent;
+    border: 1px solid var(--color-rojo-profundo);
+    color: var(--color-blanco-lavanda);
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radio-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+}
+
+.btn-anadir-bolsa:hover {
+    background-color: var(--color-rojo-profundo);
+    color: #FFFFFF;
+    box-shadow: var(--resplandor-rojo);
+}
+
+/* --------------------------------------------------------------------------
+   12. PIE DE PÁGINA (CSS GRID & FLEXBOX)
+   -------------------------------------------------------------------------- */
+.pie-principal {
+    background-color: var(--color-bg-secciones);
+    border-top: 1px solid var(--color-borde);
+    padding: 4rem 0 0 0;
+    margin-top: auto;
+}
+
+.cuadricula-pie {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 2.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.columna-pie h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    color: var(--color-texto-principal);
+    margin-bottom: 1.2rem;
+}
+
+.logo-pie {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-texto-principal);
+    margin-bottom: 0.8rem;
+}
+
+.columna-pie p {
+    font-size: 0.88rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+.enlaces-pie {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.enlaces-pie a {
+    font-size: 0.88rem;
+    color: var(--color-texto-secundario);
+}
+
+.enlaces-pie a:hover {
+    color: var(--color-blanco-lavanda);
+    padding-left: 4px;
+}
+
+.barra-derechos {
+    border-top: 1px solid var(--color-borde);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-texto-secundario);
+    background-color: var(--color-bg-principal);
+}
+
+/* --------------------------------------------------------------------------
+   13. ESTILOS DE LA PÁGINA DE LOGIN (login.html)
+   -------------------------------------------------------------------------- */
+.pagina-login {
+    background: radial-gradient(circle at center, #1b0724 0%, var(--color-bg-principal) 90%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera-login {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--color-borde);
+    background-color: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+.cabecera-login .contenedor-cabecera {
+    padding: 0;
+}
+
+.enlace-volver {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-blanco-lavanda);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.enlace-volver:hover {
+    color: #FFFFFF;
+}
+
+.principal-login {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+}
+
+.tarjeta-login {
+    background-color: var(--color-bg-tarjetas);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-tarjeta);
+    width: 100%;
+    max-width: 460px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-morado-intenso), var(--color-rojo-profundo));
+}
+
+.encabezado-tarjeta-login {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.icono-auth {
+    font-size: 2.2rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.encabezado-tarjeta-login h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin-bottom: 0.4rem;
+}
+
+.encabezado-tarjeta-login p {
+    font-size: 0.88rem;
+    color: var(--color-texto-secundario);
+}
+
+/* Aviso de credenciales demo */
+.aviso-demo {
+    background-color: rgba(106, 27, 154, 0.18);
+    border: 1px solid var(--color-morado-intenso);
+    border-radius: var(--radio-sm);
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--color-blanco-lavanda);
+}
+
+.aviso-demo code {
+    background-color: var(--color-bg-principal);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #FFFFFF;
+}
+
+/* Campos de Formulario */
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.grupo-formulario label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto-principal);
+}
+
+.requerido {
+    color: var(--color-rojo-profundo);
+}
+
+.grupo-formulario input[type="email"],
+.grupo-formulario input[type="password"] {
+    background-color: var(--color-bg-principal);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+    padding: 0.75rem 1rem;
+    color: var(--color-texto-principal);
+    font-size: 0.95rem;
+    transition: var(--transicion-suave);
+    outline: none;
+}
+
+.grupo-formulario input:focus {
+    border-color: var(--color-borde-foco);
+    box-shadow: 0 0 10px rgba(139, 14, 26, 0.3);
+}
+
+.mensaje-error {
+    font-size: 0.78rem;
+    color: #FF6B7A;
+    min-height: 1.1rem;
+    font-weight: 500;
+}
+
+.opciones-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    gap: 0.5rem;
+}
+
+.grupo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.grupo-checkbox input[type="checkbox"] {
+    accent-color: var(--color-rojo-profundo);
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.enlace-olvido {
+    color: var(--color-blanco-lavanda);
+}
+
+.enlace-olvido:hover {
+    text-decoration: underline;
+}
+
+.pie-tarjeta-login {
+    margin-top: 1.8rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+    border-top: 1px solid var(--color-borde);
+    padding-top: 1.2rem;
+}
+
+.pie-tarjeta-login a {
+    color: var(--color-blanco-lavanda);
+    font-weight: 600;
+}
+
+.pie-tarjeta-login a:hover {
+    text-decoration: underline;
+}
+
+.pie-login {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario);
+    border-top: 1px solid var(--color-borde);
+}
+
+/* --------------------------------------------------------------------------
+   14. RESPONSIVE DESIGN (Media Queries para Móvil y Tablet)
+   Criterio 3 de la Rúbrica: Móvil, Tablet y Escritorio
+   -------------------------------------------------------------------------- */
+
+/* Tablet (hasta 992px) */
+@media (max-width: 992px) {
+    .contenedor-cabecera {
+        flex-wrap: wrap;
+    }
+
+    .buscador-cabecera {
+        order: 3;
+        max-width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .cuadricula-pie {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Móvil (hasta 768px) */
+@media (max-width: 768px) {
+    .btn-hamburguesa {
+        display: flex;
+    }
+
+    .lista-categorias {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+        background-color: var(--color-bg-tarjetas);
+        border-bottom: 1px solid var(--color-borde);
+    }
+
+    /* Estado abierto del menú móvil activado por JS */
+    .lista-categorias.activo {
+        display: flex;
+    }
+
+    .enlace-movil-login {
+        display: block;
+        color: var(--color-blanco-lavanda);
+    }
+
+    .seccion-hero {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .seccion-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .bloques-marcas {
+        flex-direction: column;
+    }
+
+    .cuadricula-productos {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cuadricula-pie {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .tarjeta-login {
+        padding: 1.8rem;
+    }
+}
