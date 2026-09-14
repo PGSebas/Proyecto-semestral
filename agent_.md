@@ -1,4 +1,4 @@
-# AGENT_.MD — PROYECTO PARTE 1: PERFUMERÍA DE AUTOR ("AURA ATELIER / ÉSSENCE PARFUMS")
+# AGENT_.MD — PROYECTO PARTE 1: PERFUMERÍA DE AUTOR ("INTENSE FRAGANCIAS")
 
 > **Instrucciones maestras para Agentes de IA y Desarrollador**  
 > **Curso:** Desarrollo Web · Semestre 2026-2  
@@ -21,8 +21,8 @@ Este archivo define las reglas de negocio, directrices técnicas, restricciones 
 
 ## 2. Definición del Dominio y Modelo de Negocio
 
-* **Nombre comercial del proyecto:** *AURA Atelier de Parfum* (o *Éssence Perfumería de Autor*).
-* **Propósito:** Plataforma web integral para la exploración olfativa, venta de fragancias nicho, solicitud de sets de descubrimiento (*Discovery Sets*) y panel administrativo para la gestión de catálogo.
+* **Nombre comercial del proyecto:** *Intense Fragancias*.
+* **Propósito:** Plataforma web integral para la exploración olfativa, exhibición de fragancias de diseñador y perfumería nicho, y panel administrativo para la gestión de catálogo.
 * **Roles de usuario:**
   1. **Cliente / Visitante:** Explora el catálogo, filtra por familias olfativas, ve pirámides olfativas y solicita muestras o perfumes.
   2. **Administrador:** Inicia sesión (`login.html`) y gestiona el inventario (`admin.html`) dando de alta nuevas fragancias con validaciones estrictas.
